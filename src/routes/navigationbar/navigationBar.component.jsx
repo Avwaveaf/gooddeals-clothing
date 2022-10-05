@@ -16,7 +16,10 @@ const NavigationBar =()=>{
       <div className="nav-links-container">
       <Link className="nav-link" to='/shop'>
       Shop
-  </Link>
+  </Link>    
+    <Link className="nav-link" to='/login'>
+        Login
+    </Link>
 
       </div>
 
