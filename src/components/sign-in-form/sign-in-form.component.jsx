@@ -1,9 +1,11 @@
-import { signInWithGooglePopup,createUserDocFromAuth,signInAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
+import { signInWithGooglePopup,signInAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
 
 import { useState } from 'react';
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
+
 import './sign-in.styles.scss'
+
 
 const signInFormInput = {
 
@@ -28,8 +30,8 @@ const SignInForm =()=>{
         event.preventDefault();
 
         try {
-            const res = await signInAuthUserWithEmailAndPassword(email, password);
-            console.log(res);
+            await signInAuthUserWithEmailAndPassword(email, password);
+
             resetFormFields();
         } catch (error) {
             switch(error.code){
@@ -48,8 +50,9 @@ const SignInForm =()=>{
         }
     }
     const logGoogleUser  = async()=>{
-        const {user} = await signInWithGooglePopup();
-        await createUserDocFromAuth(user)
+         await signInWithGooglePopup();
+        
+
     }
 return(
     <div className="sign-up-container">
